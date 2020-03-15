@@ -1,0 +1,14 @@
+.suggestion {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 32px 2fr 1fr;
+  margin-bottom: 10px;
+  .identicon {
+    img {
+      max-width: 100%;
+    }
+  }
+  .action {
+    justify-self: right;
+  }
+}
