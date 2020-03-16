@@ -1,0 +1,42 @@
+.app {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    "header header header"
+    "contents contents sidebar"
+    "footer footer footer";
+
+  //   background-color: lightyellow;
+  // border: 3px solid #333;
+  width: 1024px;
+  max-width: 100%;
+  margin: 10px auto;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    grid-area: header;
+
+    .page-title {
+    }
+    .search {
+    }
+    .topnav {
+    }
+  }
+
+  .sidebar {
+    grid-area: sidebar;
+  }
+
+  .contents {
+    grid-area: contents;
+  }
+
+  .footer {
+    grid-area: footer;
+    justify-self: center;
+  }
+}
