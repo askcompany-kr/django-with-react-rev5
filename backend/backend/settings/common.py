@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # third apps
     "corsheaders",
+    "django_pydenticon",
     "rest_framework",
     # local apps
     "accounts",

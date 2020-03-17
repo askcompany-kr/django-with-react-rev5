@@ -17,3 +17,9 @@ class SignupSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ["pk", "username", "password"]
+
+
+class SuggestionUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ["username", "name", "avatar_url"]
