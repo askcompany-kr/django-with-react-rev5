@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Card, Form, Input, Button, notification } from "antd";
 import { SmileOutlined, FrownOutlined } from "@ant-design/icons";
 import { useHistory, useLocation } from "react-router-dom";
-import Axios from "axios";
 import { useAppContext } from "store";
 import { setToken } from "store";
 import { parseErrorMessages } from "utils/forms";
+import { axiosInstance } from "api";
 
 export default function Login() {
   const { dispatch } = useAppContext();
@@ -25,10 +25,7 @@ export default function Login() {
 
       const data = { username, password };
       try {
-        const response = await Axios.post(
-          "http://localhost:8000/accounts/token/",
-          data
-        );
+        const response = await axiosInstance.post("/accounts/token/", data);
         const {
           data: { token: jwtToken }
         } = response;

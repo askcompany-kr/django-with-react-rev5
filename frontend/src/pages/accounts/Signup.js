@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Form, Input, Button, notification } from "antd";
 import { SmileOutlined, FrownOutlined } from "@ant-design/icons";
 import { useHistory } from "react-router-dom";
-import Axios from "axios";
+import { axiosInstance } from "api";
 
 export default function Signup() {
   const history = useHistory();
@@ -16,7 +16,7 @@ export default function Signup() {
 
       const data = { username, password };
       try {
-        await Axios.post("http://localhost:8000/accounts/signup/", data);
+        await axiosInstance.post("/accounts/signup/", data);
 
         notification.open({
           message: "회원가입 성공",
