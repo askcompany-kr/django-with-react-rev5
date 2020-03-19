@@ -5,6 +5,7 @@ import { useHistory, useLocation } from "react-router-dom";
 import Axios from "axios";
 import { useAppContext } from "store";
 import { setToken } from "store";
+import { parseErrorMessages } from "utils/forms";
 
 export default function Login() {
   const { dispatch } = useAppContext();
@@ -51,19 +52,7 @@ export default function Login() {
           const { data: fieldsErrorMessages } = error.response;
           // fieldsErrorMessages => { username: "m1 m2", password: [] }
           // python: mydict.items()
-          setFieldErrors(
-            Object.entries(fieldsErrorMessages).reduce(
-              (acc, [fieldName, errors]) => {
-                // errors : ["m1", "m2"].join(" ") => "m1 "m2"
-                acc[fieldName] = {
-                  validateStatus: "error",
-                  help: errors.join(" ")
-                };
-                return acc;
-              },
-              {}
-            )
-          );
+          setFieldErrors(parseErrorMessages(fieldsErrorMessages));
         }
       }
     }
