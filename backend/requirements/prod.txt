@@ -1,3 +1,4 @@
 -r common.txt
 
 django-storages[azure]
+gunicorn
