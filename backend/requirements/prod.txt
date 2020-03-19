@@ -2,3 +2,4 @@
 
 django-storages[azure]
 gunicorn
+psycopg2-binary

@@ -14,8 +14,15 @@ AZURE_ACCOUNT_KEY = os.environ["AZURE_ACCOUNT_KEY"]
 # AZURE_ACCOUNT_NAME = ""
 # AZURE_ACCOUNT_KEY = ""
 
-# TODO: DATABASE
-# DATABASES = {}
+DATABASES = {
+    "default": {
+        "ENGINE": os.environ.get("DB_ENGINE", "django.db.backends.postgresql"),
+        "HOST": os.environ["DB_HOST"],
+        "USER": os.environ["DB_USER"],
+        "PASSWORD": os.environ["DB_PASSWORD"],
+        "NAME": os.environ.get("DB_NAME", "postgres"),
+    },
+}
 
 LOGGING = {
     "version": 1,
